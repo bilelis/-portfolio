@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxuryWatch - Premium Timepiece Collection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fef7ed;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #fde68a;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #1f2937;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #374151;
+            transform: translateY(-2px);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #d97706;
+            margin-bottom: 1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: #fef7ed;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid #fed7aa;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: #f59e0b;
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: #f59e0b;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: #d97706;
+            margin-bottom: 1rem;
+        }
+
+        /* Products Preview */
+        .products-preview {
+            padding: 80px 0;
+            background: #fef7ed;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-image {
+            height: 200px;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            color: #d97706;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #f59e0b;
+        }
+
+        .luxury-badge {
+            background: #1f2937;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        /* Demo Notice */
+        .demo-notice {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .demo-notice h3 {
+            color: #92400e;
+            margin-bottom: 10px;
+        }
+
+        .demo-notice p {
+            color: #78350f;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1f2937;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .back-to-portfolio {
+            background: #f59e0b;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            display: inline-block;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+
+        .back-to-portfolio:hover {
+            background: #d97706;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .features-grid,
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <i class="fas fa-clock"></i>
+                    LuxuryWatch
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#collection">Collection</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>LuxuryWatch Boutique</h1>
+            <p>Premium Timepiece Collection & Authentication Services</p>
+            <a href="#features" class="cta-button">
+                <i class="fas fa-gem"></i> Explore Collection
+            </a>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="demo-notice">
+            <h3><i class="fas fa-info-circle"></i> Demo Project Notice</h3>
+            <p>This is a demonstration of the LuxuryWatch premium timepiece boutique built by <strong>Bilel Ayari</strong>. 
+               Features 360° product views, authentication services, and luxury customer experience.</p>
+        </div>
+    </div>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Luxury Excellence</h2>
+                <p>Exceptional timepieces with unmatched service</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3>360° Product Views</h3>
+                    <p>High-resolution 360° photography showcasing every detail of each timepiece with zoom capabilities.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Authentication Certificates</h3>
+                    <p>Professional authentication and certification services for all luxury timepieces.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Installment Payments</h3>
+                    <p>Flexible payment options with secure installment plans for high-value purchases.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-concierge-bell"></i>
+                    </div>
+                    <h3>White-Glove Delivery</h3>
+                    <p>Premium delivery service with personal presentation and setup assistance.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
+                    <h3>Watch Appraisal</h3>
+                    <p>Professional appraisal services for insurance, resale, or collection valuation.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3>VIP Customer Portal</h3>
+                    <p>Exclusive access to limited editions, private sales, and collector events.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="collection" class="products-preview">
+        <div class="container">
+            <div class="section-title">
+                <h2>Premium Collection</h2>
+                <p>Exquisite timepieces from prestigious brands</p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image" style="position: relative;">
+                        <i class="fas fa-clock"></i>
+                        <span class="luxury-badge">LUXURY</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Swiss Automatic Watches</h3>
+                        <p>Handcrafted Swiss movements with precision engineering</p>
+                        <div class="product-price">From $15,000</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="position: relative;">
+                        <i class="fas fa-gem"></i>
+                        <span class="luxury-badge">LUXURY</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Diamond Timepieces</h3>
+                        <p>Exquisite watches adorned with precious diamonds</p>
+                        <div class="product-price">From $35,000</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="position: relative;">
+                        <i class="fas fa-stopwatch"></i>
+                        <span class="luxury-badge">LUXURY</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Chronograph Collection</h3>
+                        <p>Professional racing chronographs with advanced complications</p>
+                        <div class="product-price">From $25,000</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="position: relative;">
+                        <i class="fas fa-moon"></i>
+                        <span class="luxury-badge">LUXURY</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Limited Editions</h3>
+                        <p>Rare and exclusive limited edition collector timepieces</p>
+                        <div class="product-price">From $50,000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <h3>LuxuryWatch Boutique</h3>
+            <p>Premium Timepiece Collection</p>
+            <p><strong>Developed by:</strong> Bilel Ayari | <strong>Email:</strong> ba336158@gmail.com</p>
+            <p><strong>Technologies:</strong> Angular, Django, Redis, Klarna</p>
+            <a href="../../" class="back-to-portfolio">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(217, 119, 6, 0.95)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #f59e0b, #d97706)';
+            }
+        });
+    </script>
+</body>
+</html>

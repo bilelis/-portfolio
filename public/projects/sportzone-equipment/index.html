@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportZone - Fitness Equipment Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fef2f2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #dc2626, #991b1b);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #fca5a5;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #dc2626, #991b1b);
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #059669;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #047857;
+            transform: translateY(-2px);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #991b1b;
+            margin-bottom: 1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: #fef2f2;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid #fecaca;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: #dc2626;
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: #dc2626;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: #991b1b;
+            margin-bottom: 1rem;
+        }
+
+        /* Products Preview */
+        .products-preview {
+            padding: 80px 0;
+            background: #fef2f2;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-image {
+            height: 200px;
+            background: linear-gradient(135deg, #dc2626, #991b1b);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            color: #991b1b;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #dc2626;
+        }
+
+        .fitness-badge {
+            background: #059669;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        /* Demo Notice */
+        .demo-notice {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .demo-notice h3 {
+            color: #92400e;
+            margin-bottom: 10px;
+        }
+
+        .demo-notice p {
+            color: #78350f;
+        }
+
+        /* Footer */
+        .footer {
+            background: #7f1d1d;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .back-to-portfolio {
+            background: #dc2626;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            display: inline-block;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+
+        .back-to-portfolio:hover {
+            background: #991b1b;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .features-grid,
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">
+                    <i class="fas fa-dumbbell"></i>
+                    SportZone
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#equipment">Equipment</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>SportZone Equipment</h1>
+            <p>Complete Fitness Marketplace & Training Platform</p>
+            <a href="#features" class="cta-button">
+                <i class="fas fa-fire"></i> Start Training
+            </a>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="demo-notice">
+            <h3><i class="fas fa-info-circle"></i> Demo Project Notice</h3>
+            <p>This is a demonstration of the SportZone fitness equipment marketplace built by <strong>Bilel Ayari</strong>. 
+               Features equipment recommendations, workout guides, and fitness tracking integration.</p>
+        </div>
+    </div>
+
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Fitness Excellence</h2>
+                <p>Professional equipment with integrated training support</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Equipment Recommendations</h3>
+                    <p>AI-powered equipment recommendations based on your fitness goals and space requirements.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <h3>Integrated Workout Guides</h3>
+                    <p>Professional workout routines and training videos included with every equipment purchase.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                    <h3>Bulk Gym Orders</h3>
+                    <p>Special pricing and support for gym owners and fitness centers with bulk purchasing options.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Fitness Tracking</h3>
+                    <p>Integration with popular fitness apps and wearables to track your progress and results.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Assembly Videos</h3>
+                    <p>Step-by-step assembly guides and professional installation services available.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Virtual Personal Trainer</h3>
+                    <p>Access to certified personal trainers for equipment guidance and workout planning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="equipment" class="products-preview">
+        <div class="container">
+            <div class="section-title">
+                <h2>Professional Equipment</h2>
+                <p>High-quality fitness equipment for all levels</p>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image" style="position: relative;">
+                        <i class="fas fa-dumbbell"></i>
+                        <span class="fitness-badge">PRO</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Weight Training</h3>
+                        <p>Professional dumbbells, barbells, and weight machines</p>
+                        <div class="product-price">From $299</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="position: relative;">
+                        <i class="fas fa-running"></i>
+                        <span class="fitness-badge">PRO</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Cardio Equipment</h3>
+                        <p>Treadmills, ellipticals, and stationary bikes</p>
+                        <div class="product-price">From $899</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="position: relative;">
+                        <i class="fas fa-heart"></i>
+                        <span class="fitness-badge">PRO</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Home Gym Sets</h3>
+                        <p>Complete home gym solutions with space-saving design</p>
+                        <div class="product-price">From $1,299</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image" style="position: relative;">
+                        <i class="fas fa-medal"></i>
+                        <span class="fitness-badge">PRO</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Sports Accessories</h3>
+                        <p>Premium accessories for enhanced training experience</p>
+                        <div class="product-price">From $49</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <h3>SportZone Equipment</h3>
+            <p>Complete Fitness Marketplace</p>
+            <p><strong>Developed by:</strong> Bilel Ayari | <strong>Email:</strong> ba336158@gmail.com</p>
+            <p><strong>Technologies:</strong> React, Laravel, MongoDB, Razorpay</p>
+            <a href="../../" class="back-to-portfolio">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(153, 27, 27, 0.95)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #dc2626, #991b1b)';
+            }
+        });
+    </script>
+</body>
+</html>
