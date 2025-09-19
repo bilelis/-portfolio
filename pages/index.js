@@ -51,6 +51,15 @@ export default function Home() {
       github: "https://github.com/bilelayari/sportzone-equipment",
       demo: "/projects/sportzone-equipment/index.html",
       category: "Fitness E-commerce"
+    },
+    {
+      id: 6,
+      title: "HotelPro Management",
+      description: "Complete hotel management system with booking, room management, guest services, and analytics dashboard.",
+      technologies: ["Vue.js", "Node.js", "PostgreSQL", "Stripe"],
+      github: "https://github.com/bilelayari/hotel-management",
+      demo: "/projects/hotel-management/index.html",
+      category: "Hospitality Management"
     }
   ];
 
@@ -430,7 +439,7 @@ export default function Home() {
             </div>
           </div>
         </footer>
-      </div>
+    </div>
 
       <style jsx>{`
         .portfolio-container {
